@@ -4,5 +4,5 @@ PostType = GraphQL::ObjectType.define do
   # `id` exposes the UUID
   global_id_field :id
 
-  connection :friends, CommentType.connection_type, max_page_size: 50
+  connection :friends, CommentType.connection_type
 end
