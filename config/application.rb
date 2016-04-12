@@ -20,7 +20,7 @@ module DenverRbReactDemo
     config.browserify_rails.commandline_options = '-t babelify --extension=".jsx" --extension=".js"'
     config.browserify_rails.evaluate_node_modules = true
     config.browserify_rails.use_browserifyinc = true
-
+    config.assets.paths << Rails.root.join("node_modules")
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

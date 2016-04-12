@@ -6,9 +6,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'activevalidators'
 gem 'graphql'
 gem 'graphql-relay'
-gem 'graphql-formatter'
-gem 'graphiql-rails'
 gem 'browserify-rails'
+gem 'faker'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
@@ -16,4 +15,3 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
 end
-

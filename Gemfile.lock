@@ -57,7 +57,6 @@ GEM
     builder (3.2.2)
     byebug (8.2.4)
     coderay (1.1.1)
-    colorize (0.7.7)
     concurrent-ruby (1.0.1)
     countries (1.2.5)
       currencies (~> 0.4.2)
@@ -75,14 +74,12 @@ GEM
       railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.6.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    graphiql-rails (1.1.0)
-      rails
     graphql (0.12.0)
       parslet (~> 1.6)
-    graphql-formatter (0.1.1)
-      colorize
     graphql-relay (0.9.1)
       graphql (~> 0.12)
     i18n (0.7.0)
@@ -170,9 +167,8 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   browserify-rails
   dotenv-rails
-  graphiql-rails
+  faker
   graphql
-  graphql-formatter
   graphql-relay
   pry-byebug
   pry-rails
