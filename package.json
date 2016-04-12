@@ -1,0 +1,41 @@
+{
+  "name": "denver-rb-react-demo",
+  "version": "1.0.0",
+  "description": "A demo using React and GraphQL in a rails app.",
+  "main": "index.js",
+  "license": "UNLICENCED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brandfolder/denver-rb-react-demo"
+  },
+  "engines": {
+    "node": "<= 4.2"
+  },
+  "dependencies": {
+    "babel-cli": "^6.4.0",
+    "babel-core": "^6.4.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-relay-plugin": "^0.8.0",
+    "babelify": "^7.2.0",
+    "bootstrap": "^3.3.6",
+    "browserify": "^11.2.0",
+    "browserify-incremental": "^3.0.1",
+    "es6-promise": "^3.0.2",
+    "font-awesome": "^4.5.0",
+    "graphiql": "^0.7.0",
+    "graphql": "^0.5.0",
+    "jquery": "^2.1.4",
+    "lodash": "^4.5.0",
+    "react": "^15.0.1",
+    "react-bootstrap": "^0.28.5",
+    "react-dom": "^15.0.1",
+    "react-relay": "^0.8.0",
+    "react-router": "^2.1.1",
+    "react-router-relay": "^0.10.1",
+    "rrtr": "2.1.2",
+    "sync-exec": "^0.6.2",
+    "sync-request": "^3.0.0"
+  }
+}
