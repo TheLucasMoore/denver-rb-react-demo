@@ -1,7 +1,7 @@
 class Viewer
 
   def posts
-    Post.all
+    Post.order(created_at: :desc)
   end
 
   def whoami
