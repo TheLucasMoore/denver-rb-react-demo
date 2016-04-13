@@ -5,7 +5,6 @@ import DeletePost from '../mutations/delete_post';
 import PostInput from './post_input';
 
 class Post extends React.Component {
-
   constructor(...args) {
     super(...args);
     this.state = {
@@ -31,16 +30,14 @@ class Post extends React.Component {
     Relay.Store.commitUpdate( mutation, { onFailure, onSuccess });
   }
 
-  updatePost() {
-    this.state({updating: true});
-  }
+  toggleUpdate() { this.state({updating: !this.state.updating}); }
 
   renderPostOrUpdate() {
     let { post } = this.props;
-
     if (this.state.updating){
       return (
         <Col xs={12}>
+          TEST
           <div> {post.title} </div>
           <div> {post.body}</div>
           <div> {post.author_email}</div>
@@ -49,13 +46,15 @@ class Post extends React.Component {
         </Col>
       )
     } else {
-      return <PostInput post={post} updating={true}/>;
+      return <PostInput post={post} updating={true} toggleUpdate={this.toggleUpdate.bind(this)}/>;
     }
   }
 
   render() {
     let { post } = this.props;
-    return this.renderPostOrUpdate();
+    return (
+      <div> HERE {this.renderPostOrUpdate()}</div>
+    );
   }
 }
 

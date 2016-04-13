@@ -24,12 +24,16 @@ export default class PostInput extends React.Component {
   handleBodyChange = e => { this.setState({body: e.target.valye }); };
 
   get onSuccess() {
-    this.context.closeModal();
+    this.setState({email: '', title: '', body: ''});
+    if (this.props.updating) {
+      this.props.toggleUpdate();
+    }
   }
 
   get onFailure() {
-    return () => {
-      this.setState({ error: true, saving: false, deleting: false });
+    return (transaction) => {
+      const error = transaction.getError() || new Error('Mutation failed.');
+      console.log(error);
     };
   }
 
@@ -48,14 +52,7 @@ export default class PostInput extends React.Component {
     let body = this.props.post.body;
     let id = this.props.post.id;
     let mutation = new UpdatePost({post: this.props.id, email, title, body});
-    const onSuccess = () => {
-      this.setState({email: '', title: '', body: ''});
-    };
-
-    const onFailure = transaction => {
-      const error = transaction.getError() || new Error('Mutation failed.');
-      console.log(error);
-    };
+    let { onFailure, onSuccess } = this;
     Relay.Store.commitUpdate( mutation, { onFailure, onSuccess });
   }
 

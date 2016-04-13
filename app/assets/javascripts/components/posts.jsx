@@ -7,6 +7,7 @@ import PostInput from './post_input';
 let postsStyle = {
   'textAlign': 'center',
 }
+
 class Posts extends React.Component {
   renderPosts() {
     this.props.viewer.posts.edges.map(edge => {
@@ -21,7 +22,7 @@ class Posts extends React.Component {
         <hr/>
         <Grid>
           <Row>
-            <div> {this.renderPosts} </div>
+            <div> {this.renderPosts()} </div>
           </Row>
         </Grid>
       </span>
