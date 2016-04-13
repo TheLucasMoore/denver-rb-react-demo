@@ -14,8 +14,9 @@ UpdatePostMutation = GraphQL::Relay::Mutation.define do
 
   # The resolve proc is where you alter the system state.
   resolve -> (inputs, ctx) {
-    post = Post.find!(inputs[:id])
-    post.update! inputs.to_h.except('clientMutationId')
+    _, id = NodeIdentification.from_global_id(inputs[:id])
+    post = Post.find(id)
+    post.update! inputs.to_h.except('id', 'clientMutationId')
     { updated_post: post }
   }
 end
