@@ -12,8 +12,9 @@ UpdateCommentMutation = GraphQL::Relay::Mutation.define do
 
   # The resolve proc is where you alter the system state.
   resolve -> (inputs, ctx) {
-    comment = Comment.find!(inputs[:id])
-    comment.update! inputs.to_h.except('clientMutationId')
+    _, id = NodeIdentification.from_global_id(inputs[:id])
+    comment = Comment.find(id)
+    comment.update! inputs.to_h.except('id', 'clientMutationId')
     { updated_comment: comment }
   }
 end

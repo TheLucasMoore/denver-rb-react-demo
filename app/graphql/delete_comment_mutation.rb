@@ -13,8 +13,10 @@ DeleteCommentMutation = GraphQL::Relay::Mutation.define do
 
   # The resolve proc is where you alter the system state.
   resolve -> (inputs, ctx) {
-    post = Post.find!(inputs[:post_id])
-    comment = post.comments.find!(inputs[:id])
+    _, post_id = NodeIdentification.from_global_id(inputs[:post_id])
+    _, id = NodeIdentification.from_global_id(inputs[:id])
+    post = Post.find(post_id)
+    comment = post.comments.find(id)
     comment.destroy!
     { deleted_comment_id: comment.id, post: post }
   }

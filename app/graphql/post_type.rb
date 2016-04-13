@@ -2,7 +2,7 @@ PostType = GraphQL::ObjectType.define do
   name "Post"
   description "This is a Post"
 
-  field :id, !types.ID
+  global_id_field :id
   field :author_email, !types.String
   field :title, !types.String
   field :body, !types.String

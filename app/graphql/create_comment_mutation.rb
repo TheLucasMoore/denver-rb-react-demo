@@ -13,8 +13,9 @@ CreateCommentMutation = GraphQL::Relay::Mutation.define do
 
   # The resolve proc is where you alter the system state.
   resolve -> (inputs, ctx) {
-    post = post.find(inputs['post_id'])
-    comment = post.comments.create! inputs.to_h.except('clientMutationId')
+    _, id = NodeIdentification.from_global_id(inputs['post_id'])
+    post = Post.find(id)
+    comment = post.comments.create! inputs.to_h.except('post_id', 'clientMutationId')
     connection_class = GraphQL::Relay::BaseConnection.connection_for_items([comment])
     created_comment_edge = connection_class.new([comment], {}).edges[0]
     { created_comment_edge: created_comment_edge, post: post }
