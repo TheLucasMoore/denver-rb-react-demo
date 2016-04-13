@@ -7,8 +7,8 @@ export default class UpdatePost extends Relay.Mutation {
 
     getFatQuery() {
       return Relay.QL`
-        fragment on updatePostPayload {
-          updatedPost {
+        fragment on UpdatePostPayload {
+          updated_post {
               id,
               author_email,
               title,
@@ -22,7 +22,7 @@ export default class UpdatePost extends Relay.Mutation {
       return [ {
         type: 'FIELDS_CHANGE',
         fieldIDs: {
-          updatedPost: this.props.id
+          updated_post: this.props.id
         }
       } ];
     }

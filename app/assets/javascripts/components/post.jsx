@@ -25,35 +25,37 @@ class Post extends React.Component {
 
   deletePost() {
     let post = this.props.post;
-    let mutation = new DeletePost({ socialLink, brandfolder });
+    let mutation = new DeletePost({ post });
     let { onFailure, onSuccess } = this;
     Relay.Store.commitUpdate( mutation, { onFailure, onSuccess });
   }
 
-  toggleUpdate() { this.state({updating: !this.state.updating}); }
+  toggleUpdate() { this.setState({updating: !this.state.updating}); }
 
   renderPostOrUpdate() {
     let { post } = this.props;
-    if (this.state.updating){
+    if (!this.state.updating){
       return (
         <Col xs={12}>
           TEST
           <div> {post.title} </div>
-          <div> {post.body}</div>
+          <div dangerouslySetInnerHTML={{ __html: post.body }}/>
           <div> {post.author_email}</div>
           <Button onClick={this.deletePost.bind(this)}> Delete </Button>
-          <Button onClick={this.updatePost.bind(this)}> Update </Button>
+          <Button onClick={this.toggleUpdate.bind(this)}> Update </Button>
+          <hr/>
         </Col>
+
       )
     } else {
-      return <PostInput post={post} updating={true} toggleUpdate={this.toggleUpdate.bind(this)}/>;
+      return <PostInput post={post} updating={this.state.updating} toggleUpdate={this.toggleUpdate.bind(this)}/>;
     }
   }
 
   render() {
     let { post } = this.props;
     return (
-      <div> HERE {this.renderPostOrUpdate()}</div>
+      <div> {this.renderPostOrUpdate()}</div>
     );
   }
 }

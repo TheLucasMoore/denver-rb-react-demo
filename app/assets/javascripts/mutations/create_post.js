@@ -15,11 +15,11 @@ export default class extends Relay.Mutation {
 
     getFatQuery() {
       return Relay.QL`
-        fragment on createPostPayload {
+        fragment on CreatePostPayload {
           viewer {
             posts
           }
-          createdPostEdge {
+          created_post_edge {
             node {
               author_email,
               title,
@@ -36,7 +36,7 @@ export default class extends Relay.Mutation {
           type: 'RANGE_ADD',
           parentName: 'viewer',
           connectionName: 'posts',
-          edgeName: 'createdPostEdge',
+          edgeName: 'created_post_edge',
           rangeBehaviors: {
             '': 'prepend'
           }

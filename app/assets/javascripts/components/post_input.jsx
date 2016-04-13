@@ -1,17 +1,27 @@
 import React from 'react';
 import Relay from 'react-relay';
 import { Input, Col, Button } from 'react-bootstrap';
-import createPost from '../mutations/create_post';
-import updatePost from '../mutations/update_post';
+import CreatePost from '../mutations/create_post';
+import UpdatePost from '../mutations/update_post';
 
 
 export default class PostInput extends React.Component {
 
+  get email() {
+    return this.props.post ? this.props.post.author_email : '';
+  }
+
+  get title() {
+    return this.props.post? this.props.post.title : '';
+  }
+
+  get body() {
+   return this.props.post ? this.props.post.body : ' ';
+  }
+
   constructor(...args){
     super(...args);
-    this.email = this.props.email ? this.props.email : '';
-    this.title = this.props.title ? this.props.title : '';
-    this.body = this.props.body ? this.props.body : ' ';
+
     this.state = {
       email: this.email,
       title: this.title,
@@ -65,7 +75,6 @@ export default class PostInput extends React.Component {
   render() {
     return (
       <Col xs={12}>
-        <h3> Create a New Post </h3>
         <Input type="text" placeholder="Author Email" value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
         <Input type="text" placeholder="Title" value={this.state.title} onChange={this.handleTitleChange.bind(this)}/>
         <Input type="textarea" placeholder="Body" value={this.state.body} onChange={this.handleBodyChange.bind(this)}/>

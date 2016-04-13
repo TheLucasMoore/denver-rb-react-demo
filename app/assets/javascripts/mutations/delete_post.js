@@ -7,17 +7,17 @@ export default class extends Relay.Mutation {
 
     getVariables() {
       return {
-        id: this.props.socialLink.id
+        id: this.props.post.id
       };
     }
 
     getFatQuery() {
       return Relay.QL`
-        fragment on deletePostPayload {
+        fragment on DeletePostPayload {
           viewer {
             posts
           }
-          deletedPostId
+          deleted_post_id
       }
     `;
     }
@@ -27,8 +27,8 @@ export default class extends Relay.Mutation {
         {
           type: 'NODE_DELETE',
           parentName: 'viewer',
-          connectionName: 'postss',
-          deletedIDFieldName: 'deletedPostId'
+          connectionName: 'posts',
+          deletedIDFieldName: 'deleted_post_id'
         }
       ];
     }

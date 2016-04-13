@@ -10,14 +10,15 @@ let postsStyle = {
 
 class Posts extends React.Component {
   renderPosts() {
-    this.props.viewer.posts.edges.map(edge => {
-      <Post key={edge.node.id} post={edge.node}/>
+   return this.props.viewer.posts.edges.map(edge => {
+      return (<Post key={edge.node.id} post={edge.node}/>);
     });
   }
   render() {
     let { viewer } = this.props;
     return (
       <span style={this.postsStyle}>
+        <h3> Create a New Post </h3>
         <PostInput viewer={viewer}/>
         <hr/>
         <Grid>
