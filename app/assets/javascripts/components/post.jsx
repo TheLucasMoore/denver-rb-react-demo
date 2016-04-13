@@ -1,6 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 import {Button, Col} from 'react-bootstrap';
+
 import DeletePost from '../mutations/delete_post';
 import PostInput from './post_input';
 
@@ -37,8 +38,7 @@ class Post extends React.Component {
     if (!this.state.updating){
       return (
         <Col xs={12}>
-          TEST
-          <div> {post.title} </div>
+          <h2> {post.title} </h2>
           <div dangerouslySetInnerHTML={{ __html: post.body }}/>
           <div> {post.author_email}</div>
           <Button onClick={this.deletePost.bind(this)}> Delete </Button>

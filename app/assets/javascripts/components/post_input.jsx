@@ -1,9 +1,9 @@
 import React from 'react';
 import Relay from 'react-relay';
 import { Input, Col, Button } from 'react-bootstrap';
+
 import CreatePost from '../mutations/create_post';
 import UpdatePost from '../mutations/update_post';
-
 
 export default class PostInput extends React.Component {
 
@@ -21,7 +21,6 @@ export default class PostInput extends React.Component {
 
   constructor(...args){
     super(...args);
-
     this.state = {
       email: this.email,
       title: this.title,

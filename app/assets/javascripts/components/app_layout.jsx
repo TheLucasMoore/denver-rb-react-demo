@@ -5,6 +5,7 @@ class AppLayout extends React.Component {
     render() {
         return(
             <div>
+                <h1>My Awesome Blog </h1>
                 {this.props.children}
             </div>
         )

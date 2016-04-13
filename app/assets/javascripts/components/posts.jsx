@@ -1,7 +1,8 @@
 import React from 'react';
 import Relay from 'react-relay';
-import Post from './post';
 import {Grid, Row } from 'react-bootstrap';
+
+import Post from './post';
 import PostInput from './post_input';
 
 let postsStyle = {
@@ -32,10 +33,13 @@ class Posts extends React.Component {
 }
 
 export default Relay.createContainer(Posts, {
+  initialVariables: {
+    limit: 100
+  },
   fragments: {
     viewer: () => Relay.QL`
       fragment on Viewer {
-        posts(first: 100) {
+        posts(first: $limit) {
           edges {
             node {
               id
