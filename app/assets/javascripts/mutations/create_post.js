@@ -7,7 +7,7 @@ export default class extends Relay.Mutation {
 
     getVariables() {
       return {
-        title: this.props.name,
+        title: this.props.title,
         author_email: this.props.email,
         body: this.props.body
       };

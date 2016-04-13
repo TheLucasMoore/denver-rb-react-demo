@@ -48,18 +48,20 @@ export default class PostInput extends React.Component {
   }
 
   createPost() {
-    let email = this.props.email;
-    let title = this.props.title;
-    let body = this.props.body;
-    let mutation = new CreatePost({viewer: this.props.viewer, email, title, body});
+    let email = this.state.email;
+    let title = this.state.title;
+    let body = this.state.body;
+    let viewer = this.props.viewer;
+    debugger;
+    let mutation = new CreatePost({viewer, email, title, body});
     let { onFailure, onSuccess } = this;
     Relay.Store.commitUpdate( mutation, { onFailure, onSuccess });
   }
 
   updatePost() {
-    let email = this.props.post.author_email;
-    let title = this.props.post.title;
-    let body = this.props.post.body;
+    let email = this.state.email;
+    let title = this.state.title;
+    let body = this.state.body;
     let id = this.props.post.id;
     let mutation = new UpdatePost({post: this.props.id, email, title, body});
     let { onFailure, onSuccess } = this;

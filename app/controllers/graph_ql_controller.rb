@@ -14,7 +14,14 @@ class GraphQlController < ActionController::Base
   end
 
   def variables
-    JSON.load(params[:variables])
+    case params[:variables]
+    when String
+      JSON.load(params[:variables])
+    when Hash
+      params[:variables]
+    else
+      {}
+    end
   rescue JSON::ParserError
     {}
   end
