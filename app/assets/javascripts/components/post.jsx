@@ -2,6 +2,7 @@ import React from 'react';
 import Relay from 'react-relay';
 import {Button, Col} from 'react-bootstrap';
 import DeletePost from '../mutations/delete_post';
+import PostInput from './post_input';
 
 class Post extends React.Component {
 

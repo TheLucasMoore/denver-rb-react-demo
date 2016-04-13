@@ -2,7 +2,11 @@ import React from 'react';
 import Relay from 'react-relay';
 import Post from './post';
 import {Grid, Row } from 'react-bootstrap';
+import PostInput from './post_input';
 
+let postsStyle = {
+  'textAlign': 'center',
+}
 class Posts extends React.Component {
   renderPosts() {
     this.props.viewer.posts.edges.map(edge => {
@@ -12,7 +16,7 @@ class Posts extends React.Component {
   render() {
     let { viewer } = this.props;
     return (
-      <span>
+      <span style={this.postsStyle}>
         <PostInput viewer={viewer}/>
         <hr/>
         <Grid>

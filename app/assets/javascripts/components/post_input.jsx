@@ -1,8 +1,8 @@
 import React from 'react';
 import Relay from 'react-relay';
 import { Input, Col, Button } from 'react-bootstrap';
-import createPost from '../queries/create_post';
-import updatePost from '../queries/update_post';
+import createPost from '../mutations/create_post';
+import updatePost from '../mutations/update_post';
 
 
 export default class PostInput extends React.Component {
@@ -68,9 +68,10 @@ export default class PostInput extends React.Component {
   render() {
     return (
       <Col xs={12}>
+        <h3> Create a New Post </h3>
         <Input type="text" placeholder="Author Email" value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
-        <Input type="text" placeholder="Title" value={this.state.title}/>
-        <Input type="textarea" placeholder="Body" value={this.state.body}/>
+        <Input type="text" placeholder="Title" value={this.state.title} onChange={this.handleTitleChange.bind(this)}/>
+        <Input type="textarea" placeholder="Body" value={this.state.body} onChange={this.handleBodyChange.bind(this)}/>
         {this.renderButton()}
       </Col>
     )
