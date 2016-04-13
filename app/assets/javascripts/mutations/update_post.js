@@ -30,7 +30,7 @@ export default class UpdatePost extends Relay.Mutation {
     getVariables() {
       return {
         id: this.props.id,
-        author_email: this.props.author_email,
+        author_email: this.props.email,
         title: this.props.title,
         body: this.props.body
       };
