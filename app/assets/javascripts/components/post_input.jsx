@@ -25,13 +25,13 @@ export default class PostInput extends React.Component {
     this.state = {
       email: this.email,
       title: this.title,
-      body: this.body,
+      body: this.body
     }
   }
 
   handleEmailChange = e => { this.setState({email: e.target.value}); };
   handleTitleChange = e => { this.setState({title: e.target.value}); };
-  handleBodyChange = e => { this.setState({body: e.target.valye }); };
+  handleBodyChange = e => { this.setState({body: e.target.value }); };
 
   get onSuccess() {
     this.setState({email: '', title: '', body: ''});
@@ -52,7 +52,6 @@ export default class PostInput extends React.Component {
     let title = this.state.title;
     let body = this.state.body;
     let viewer = this.props.viewer;
-    debugger;
     let mutation = new CreatePost({viewer, email, title, body});
     let { onFailure, onSuccess } = this;
     Relay.Store.commitUpdate( mutation, { onFailure, onSuccess });
