@@ -9,7 +9,12 @@ class GraphQlController < ActionController::Base
   def execute
     Schema.execute(
       params[:query],
-      variables: params[:variables]
+      variables: variables
     )
   end
+
+  def variables
+    JSON.load(params[:variables])
+  end
+
 end

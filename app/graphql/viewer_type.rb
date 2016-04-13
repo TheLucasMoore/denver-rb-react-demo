@@ -4,4 +4,7 @@ ViewerType = GraphQL::ObjectType.define do
 
   field :whoami, !types.String
 
+  # Posts
+  connection :posts, PostType.connection_type
+
 end

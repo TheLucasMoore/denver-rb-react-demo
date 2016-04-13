@@ -9,7 +9,7 @@ QueryType = GraphQL::ObjectType.define do
   # We use this because Relay needs all root query fields to return
   # single objects.
   field :viewer, ViewerType do
-    resolve ->(*){ OpenStruct.new(whoami: "You are a viewer!") }
+    resolve ->(*){ Viewer.new }
   end
 
 end
