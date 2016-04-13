@@ -7,7 +7,6 @@
 
   20.times do
     post.comments.create(
-      author_email: Faker::Internet.email,
       body: Faker::Hipster.sentence
     )
   end
