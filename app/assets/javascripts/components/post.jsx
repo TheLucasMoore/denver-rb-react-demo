@@ -7,7 +7,7 @@ class Post extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state {
+    this.state = {
       updating: false
     }
   }
@@ -39,30 +39,27 @@ class Post extends React.Component {
 
     if (this.state.updating){
       return (
-        <div> {post.title} </div>
-        <div> {post.body}</div>
-        <div> {post.author_email}</div>
-        <Button onClick={this.deletePost.bind(this)}> Delete </Button>
-        <Button onClick={this.updatePost.bind(this)}> Update </Button>
+        <Col xs={12}>
+          <div> {post.title} </div>
+          <div> {post.body}</div>
+          <div> {post.author_email}</div>
+          <Button onClick={this.deletePost.bind(this)}> Delete </Button>
+          <Button onClick={this.updatePost.bind(this)}> Update </Button>
+        </Col>
       )
     } else {
       return <PostInput post={post} updating={true}/>;
     }
-
   }
 
   render() {
     let { post } = this.props;
-    return (
-      <Col xs={12}>
-        {this.renderPostOrUpdate()}
-      </Col>
-    )
+    return this.renderPostOrUpdate();
   }
 }
 
 export default Relay.createContainer(Post, {
-  fragment: {
+  fragments: {
     post: () => Relay.QL`
       fragment on Post {
         id,

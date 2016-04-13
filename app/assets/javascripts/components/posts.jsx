@@ -26,10 +26,10 @@ class Posts extends React.Component {
 }
 
 export default Relay.createContainer(Posts, {
-  fragment: {
+  fragments: {
     viewer: () => Relay.QL`
       fragment on Viewer {
-        posts {
+        posts(first: 100) {
           edges {
             node {
               id

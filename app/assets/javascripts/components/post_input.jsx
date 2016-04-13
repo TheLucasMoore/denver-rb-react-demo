@@ -12,7 +12,7 @@ export default class PostInput extends React.Component {
     this.email = this.props.email ? this.props.email : '';
     this.title = this.props.title ? this.props.title : '';
     this.body = this.props.body ? this.props.body : ' ';
-    this.state {
+    this.state = {
       email: this.email,
       title: this.title,
       body: this.body,
